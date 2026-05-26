@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "HomeworkForYou Bid Bot",
+  "version": "1.0",
+  "description": "Automatically places bids on HomeworkForYou.com projects",
+  "permissions": ["storage", "tabs"],
+  "host_permissions": ["https://www.homeworkforyou.com/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": { "48": "icon.png" }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.homeworkforyou.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": { "48": "icon.png" }
+}
